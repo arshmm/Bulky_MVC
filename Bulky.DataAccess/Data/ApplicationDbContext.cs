@@ -1,7 +1,8 @@
-﻿using helloWeb.Models;
+﻿
+using Bulky.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace helloWeb.Data
+namespace hello.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

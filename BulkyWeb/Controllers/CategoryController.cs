@@ -1,5 +1,5 @@
-﻿using helloWeb.Data;
-using helloWeb.Models;
+﻿using Bulky.Models;
+using hello.DataAccess.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace helloWeb.Controllers

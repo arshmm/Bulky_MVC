@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace helloWeb.Migrations
+namespace hello.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class fixCategoryNameToString : Migration

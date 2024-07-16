@@ -1,4 +1,4 @@
-using helloWeb.Data;
+using hello.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
