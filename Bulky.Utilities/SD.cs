@@ -1,4 +1,4 @@
-﻿namespace Bulky.Utilities
+﻿namespace BulkyBookBook.Utilities
 {
     public static class SD
     {
