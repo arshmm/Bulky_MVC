@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BulkyBookBook.DataAccess.Migrations
+namespace BulkyBook.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class addForeignKeyForCategoryProductRelation : Migration

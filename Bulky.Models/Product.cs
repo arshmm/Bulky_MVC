@@ -1,4 +1,4 @@
-﻿using BulkyBookBook.Models;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,7 +11,7 @@ namespace BulkyBook.Models
         public int Id { get; set; }
         [Required]
         [MaxLength(30)]
-        [DisplayName("Category Name")]
+        [DisplayName("Title")]
         public string Title { get; set; }
         public string Description { get; set; }
         [Required]
@@ -40,7 +40,10 @@ namespace BulkyBook.Models
 
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
+        [ValidateNever]
         public Category Category { get; set; }
+        [ValidateNever]
+        public string ImageUrl { get; set; }
 
 
     }

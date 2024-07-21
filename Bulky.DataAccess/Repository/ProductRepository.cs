@@ -1,8 +1,8 @@
 ﻿using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
-using BulkyBookBook.DataAccess.Data;
+using BulkyBook.DataAccess.Data;
 
-namespace BulkyBookBook.DataAccess.Repository
+namespace BulkyBook.DataAccess.Repository
 {
     public class ProductRepository : Repository<Product>, IProductRepository
     {
