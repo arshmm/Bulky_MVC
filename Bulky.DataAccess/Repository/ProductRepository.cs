@@ -1,6 +1,6 @@
-﻿using BulkyBook.DataAccess.Repository.IRepository;
+﻿using BulkyBook.DataAccess.Data;
+using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
-using BulkyBook.DataAccess.Data;
 
 namespace BulkyBook.DataAccess.Repository
 {
@@ -13,9 +13,27 @@ namespace BulkyBook.DataAccess.Repository
         }
 
 
-        public void update(Product obj)
+        public void Update(Product obj)
         {
-            _db.Products.Update(obj);
+            var objFromDb = _db.Products.FirstOrDefault(p => p.Id == obj.Id);
+            if (objFromDb != null)
+            {
+                objFromDb.Title = obj.Title;
+                objFromDb.Description = obj.Description;
+                objFromDb.CategoryId = obj.CategoryId;
+                objFromDb.ISBN = obj.ISBN;
+                objFromDb.Price = obj.Price;
+                objFromDb.Price50 = obj.Price50;
+                objFromDb.Price100 = obj.Price100;
+                objFromDb.ListPrice = obj.ListPrice;
+                objFromDb.Author = obj.Author;
+                if (obj.ImageUrl != null)
+                {
+                    objFromDb.ImageUrl = obj.ImageUrl;
+                }
+
+
+            }
         }
     }
 }
