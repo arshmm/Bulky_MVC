@@ -42,11 +42,30 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
             return Json(new { data = objUserList });
         }
-        [HttpDelete]
-        public IActionResult Delete(int? id)
+        [HttpPost]
+        public IActionResult LockUnlock([FromBody] string id)
         {
+            var objFromDb = _db.ApplicationUsers.FirstOrDefault(u => u.Id == id);
+            if (objFromDb == null)
+            {
+                return Json(new { success = false, message = "Error while locking/unlocking" });
+            }
 
-            return Json(new { success = true, message = "Delete Successful" });
+            if (objFromDb.LockoutEnd != null && objFromDb.LockoutEnd > DateTime.Now)
+            {
+                objFromDb.LockoutEnd = DateTime.Now;
+                _db.SaveChanges();
+                return Json(new { success = true, message = "Successfully Unlocked" });
+            }
+            else
+            {
+                objFromDb.LockoutEnd = DateTime.Now.AddYears(1000);
+                _db.SaveChanges();
+                return Json(new { success = true, message = "Successfuly unlocked" });
+            }
+
+
+
         }
         #endregion
     }
