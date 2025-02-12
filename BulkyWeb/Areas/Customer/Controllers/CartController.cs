@@ -129,7 +129,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 
             if (ApplicationUser.CompanyId.GetValueOrDefault() == 0)
             {
-                var Domain = "https://localhost:7287/";
+                var Domain = Request.Scheme + "://" + Request.Host.Value + "/";
                 //stripe logic
                 var options = new SessionCreateOptions
                 {
